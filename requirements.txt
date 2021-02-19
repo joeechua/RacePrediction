@@ -1,0 +1,9 @@
+Flask
+Flask-RESTful
+Flask-JWT
+Flask-SQLAlchemy
+uwsgi
+scikit-learn=0.23.2
+pandas
+numpy
+pickle
