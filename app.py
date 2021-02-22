@@ -26,7 +26,7 @@ def get(name):
     
 @app.route("/race/predict", methods = ['GET'])
 def pred_race():
-    race_index = request.form.get('Predict Name')
+   race_index = request.form.get('Predict Name')
     return render_template('result.html', prediction=race_index)
 
 if __name__ == '__main__':
