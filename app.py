@@ -16,13 +16,18 @@ def get_races():
 
 @app.route("/", methods = ['GET'])
 def hello():
-    return render_template('index.html')
+    return render_template('index2.html')
 
 @app.route("/race/<name>", methods = ['GET'])
 def get(name):
     index = model.predict([name])[0]
     p_race = bangsa[index]
     return {'predictedrace': p_race}
+    
+@app.route("/race/predict", methods = ['GET'])
+def pred_race():
+    race_index = request.form.get('Predict Name')
+    return render_template('result.html', prediction=race_index)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

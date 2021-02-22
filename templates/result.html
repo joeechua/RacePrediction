@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Race Predictor</title>
-        <style type="text/css">
+	<head>
+		<meta charset="utf-8">
+		<title>Race Predictor</title>
+		<style type="text/css">
 			body{
 				font-family: Arial, Helvetica,sans-serif;
 				text-align: center;
@@ -103,7 +103,7 @@
 			/* Footer */
 			.footer{
 				flex-shrink: 0;
-				position: absolute;
+				position: relative;
 				padding: 20px;
 				background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
 				background-size: 500% 500%;
@@ -139,35 +139,38 @@
 					margin: 10px 0;
 			}
         </style>
-    </head>
+	</head>
 
     <body>
 
         <!-- Website Title -->
-    	<div class="container">
+		<div class="container">
             <h2 class='container-heading'><span class="heading_font">Race Predictor</span></h2>
             <div class='description'>
     			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
     		</div>
     	</div>
 
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==3 %}
+				<h1>Prediction: <span class='safe'>LAIN-LAIN/OTHERS</span></h1>
+			{% elif prediction==2 %}
+				<h1>Prediction: <span class='safe'>INDIA/INDIAN</span></h1>
+			{% elif prediction==1 %}
+				<h1>Prediction: <span class='safe'>CINA/CHINESE</span></h1>
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>MELAYU/MALAY</span></h1>
+			{% endif %}
+		</div>
 
-        <!-- Text Area -->
-    	<div class="ml-container">
-    		<form action="{{ https://race-prediction.herokuapp.com/race }}" method="GET">
-                <input class="form-input" type="text" name="Predict Name" placeholder="Name eg. John Doe"><br>
-
-        		<input type="submit" class="my-cta-button" value="Predict">
-        	</form>
-    	</div> -->
-
-        <!-- Footer -->
+		<!-- Footer -->
        <div class='footer'>
            <div class="contact">
-               <a target="_blank" href="https://github.com/joeechua/RacePrediction"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
            </div>
            <p class='footer-description'>I am trying.</p>
        </div>
 
-    </body>
+	</body>
 </html>
