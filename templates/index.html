@@ -2,311 +2,594 @@
 <html>
   <head>
     <title>Customer Info Predictor</title>
-    <style type="text/css">
-      body {
-	font-family: Trebuchet MS, sans-serif;
-	font-size: 15px;
-	color: #444;
-	margin-right: 24px;
-}
-
-h1	{
-	font-size: 25px;
-}
-h2	{
-	font-size: 20px;
-}
-h3	{
-	font-size: 16px;
-	font-weight: bold;
-}
-hr	{
-	height: 1px;
-	border: 0;
-	color: #ddd;
-	background-color: #ddd;
-}
-
-.app-desc {
-  clear: both;
-  margin-left: 20px;
-}
-.param-name {
-  width: 100%;
-}
-.license-info {
-  margin-left: 20px;
-}
-
-.license-url {
-  margin-left: 20px;
-}
-
-.model {
-  margin: 0 0 0px 20px;
-}
-
-.method {
-  margin-left: 20px;
-}
-
-.method-notes	{
-	margin: 10px 0 20px 0;
-	font-size: 90%;
-	color: #555;
-}
-
-pre {
-  padding: 10px;
-  margin-bottom: 2px;
-}
-
-.http-method {
- text-transform: uppercase;
-}
-
-pre.get {
-  background-color: #0f6ab4;
-}
-
-pre.post {
-  background-color: #10a54a;
-}
-
-pre.put {
-  background-color: #c5862b;
-}
-
-pre.delete {
-  background-color: #a41e22;
-}
-
-.huge	{
-	color: #fff;
-}
-
-pre.example {
-  background-color: #f3f3f3;
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-code {
-  white-space: pre;
-}
-
-.nickname {
-  font-weight: bold;
-}
-
-.method-path {
-  font-size: 1.5em;
-  background-color: #0f6ab4;
-}
-
-.up {
-  float:right;
-}
-
-.parameter {
-  width: 500px;
-}
-
-.param {
-  width: 500px;
-  padding: 10px 0 0 20px;
-  font-weight: bold;
-}
-
-.param-desc {
-  width: 700px;
-  padding: 0 0 0 20px;
-  color: #777;
-}
-
-.param-type {
-  font-style: italic;
-}
-
-.param-enum-header {
-width: 700px;
-padding: 0 0 0 60px;
-color: #777;
-font-weight: bold;
-}
-
-.param-enum {
-width: 700px;
-padding: 0 0 0 80px;
-color: #777;
-font-style: italic;
-}
-
-.field-label {
-  padding: 0;
-  margin: 0;
-  clear: both;
-}
-
-.field-items	{
-	padding: 0 0 15px 0;
-	margin-bottom: 15px;
-}
-
-.return-type {
-  clear: both;
-  padding-bottom: 10px;
-}
-
-.param-header {
-  font-weight: bold;
-}
-
-.method-tags {
-  text-align: right;
-}
-
-.method-tag {
-  background: none repeat scroll 0% 0% #24A600;
-  border-radius: 3px;
-  padding: 2px 10px;
-  margin: 2px;
-  color: #FFF;
-  display: inline-block;
-  text-decoration: none;
-}
-
-    </style>
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style2.css') }}">
   </head>
   <body>
-  <h1>Customer Info Predictor</h1>
-    <div class="app-desc">This is a basic server that returns predictions based on customer info</div>
-  <h2>Access</h2>
-    <ul>
-      <li>http://127.0.0.1:5000/</li>
-    </ul>
+  <!-- Website Title -->
+	<div class="header">
+		  <a href="#default" class="logo">Race Prediction</a>
+		  <div class="header-right">
+			<a href="/">Home</a>
+			<a href="https://github.com/joeechua/RacePrediction">GitHub Repo</a>
+			<a class="active" href="/api">API Explanation</a>
+		  </div>
+	</div>
+		
+	<div class="container" style="height: 200px;">
+		<div class="split2 left">
+			<h1>Introduction</h1>
+			<p>Welcome to Race-Predictor! You can use this API to access all API endpoints, which can predict someone's race given their name.
+			We have language bindings in Php, Python, NodeJs, Javascript, Curl and Ruby! You can view code 
+			examples in the dark area to the right, and you can switch the programming language of 
+			the examples with the tabs in the top right.</p>
+		</div>
+		<div class="split right">
+		</div>
+	</div>
+		
+	<div class="container"  style="text-align: left;">
+		<div class="split2 left">
+		  <div class="centered">
+			<hr>
+			<h1>Race</h1>
+			<p>Get the list of available outcomes for prediction endpoint.
+			<div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+			Update Frequency : This endpoint contains all the races used in prediction, it is not updated.<br>
+			Recommended Calls : 1 call when you need.</p>
+		  </div><br>
+		  <h3 style="color:#bbb;">PATH PARAMTERS</h3>
+		  <hr><br>
+		  <div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+		  <h3 style="color:#bbb;">QUERY PARAMTERS</h3>
+		  <hr><br>
+		  <div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+		  <h3 style="color:#bbb;">HEADER PARAMTERS</h3>
+		  <hr><br>
+		  <div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+		  <h2 style="color: black;">Responses</h2>
+		  <button class="collapsible" style="background-color:rgb(152,251,152, 0.2); color: green;"><b>200</b></button>
+			<div class="content">
+				<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+				<hr>
+				<ul>
+				  <li><span><code>get</code></span></li>
+				  <li><span>
+						<button class="collapsible" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>parameters</code></button>
+						<div class="content">
+							<div class="boxed3" style="background-color: #eee;">
+								<h3 style="color: black;"><code>Array () [field]</code></h3>
+							</div>
+						</div>
+				  </span></li>
+				  <li><span>
+						<button class="collapsible" style="background-color:transparent; color:black; padding:0px; margin:0px;"><code>errors</code></button>
+						<div class="content">
+							<div class="boxed3" style="background-color: #eee;">
+								<h3 style="color: black;"><code>Array () [field]</code></h3>
+							</div>
+						</div>
+				  </span></li>
+				  <li><span><code>results</code></span></li>
+				  <li><span><button class="collapsible" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>response </code></button></span></li>
+				</ul>
+			</div>
+			<button class="collapsible" style="background-color:rgb(152,251,152, 0.2); color: green;"><b>204</b></button>
+			<div class="content">
+				<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+				<hr>
+				<ul>
+				  <li><span><code>get</code></span></li>
+				  <li><span>
+						<button class="collapsible" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>parameters</code></button>
+						<div class="content">
+							<div class="boxed3" style="background-color: #eee;">
+								<h3 style="color: black;"><code>Array () [field]</code></h3>
+							</div>
+						</div>
+				  </span></li>
+				  <li><span>
+						<button class="collapsible" style="background-color:transparent; color:black; padding:0px; margin:0px;"><code>errors</code></button>
+						<div class="content">
+							<div class="boxed3" style="background-color: #eee;">
+								<h3 style="color: black;"><code>Array () [field]</code></h3>
+							</div>
+						</div>
+				  </span></li>
+				  <li><span><code>results</code></span></li>
+				  <li><span><button class="collapsible" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>response </code></button></span></li>
+				</ul>
+			</div>
+			<button class="collapsible" style="background-color:rgba(255, 0, 0, 0.1); color: red;"><b>405</b></button>
+			<div class="content">
+				<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+				<hr>
+				<div class="boxed2" style="height: 20px; width:100px;"><code>message</code></div>
+				<div class="boxed2" style="height: 20px; width:250px;"><h3 style="color:black;padding:0; margin:12px;">string</h3><hr></div><br><br><br>
+		  
+			</div>
+			<button class="collapsible" style="background-color:rgba(255, 0, 0, 0.1); color:red;"><b>500</b></button>
+			<div class="content">
+				<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+				<hr>
+				<div class="boxed2" style="height: 20px; width:100px;"><code>message</code></div>
+				<div class="boxed2" style="height: 20px; width:250px;"><h3 style="color:black;padding:0; margin:12px;">string</h3><hr></div><br><br><br>
+			</div>
+			<script>
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
 
-  <h2><a name="__Methods">Methods</a></h2>
-  [ Jump to <a href="#__Models">Models</a> ]
+			for (i = 0; i < coll.length; i++) {
+			  coll[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var content = this.nextElementSibling;
+				if (content.style.maxHeight){
+				  content.style.maxHeight = null;
+				} else {
+				  content.style.maxHeight = content.scrollHeight + "px";
+				} 
+			  });
+			}
+			</script>
+		</div>
+		<div class="split right">
+		  <hr>
+		  <div class="top">
+			<div class="dropdown" style="text-align: left">
+			  <button onclick="myFunction()" class="dropbtn">
+							<div class="boxed"><b>GET</b></div>
+							<div class="boxed2"><code>/api/race</code></div>
+			  </button>
+			  <div id="myDropdown" class="dropdown-content">
+				<a href="#home">Heroku APP<br><div class="boxed3" style="width:300px;"><code>https://race-prediction.herokuapp/api/race</code></div></a>
+			  </div>
+			</div>
 
-  <h3>Table of Contents </h3>
-  <div class="method-summary"></div>
-  <h4><a href="#Race">Race</a></h4>
-  <ul>
-  <li><a href="#GetRaceGroups"><code><span class="http-method">get</span> /race/</code></a></li>
-  <li><a href="#PredictRace"><code><span class="http-method">get</span> /race/{name}</code></a></li>
-  </ul>
+			<script>
+			/* When the user clicks on the button, 
+			toggle between hiding and showing the dropdown content */
+			function myFunction() {
+			  document.getElementById("myDropdown").classList.toggle("show");
+			}
 
-  <h1><a name="Race">Race</a></h1>
-  <div class="method"><a name="get_races"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">get</span> /race</code></pre></div>
-    <div class="method-summary">Get the race groups used(<span class="nickname">getRaces</span>)</div>
-    <div class="method-notes"></div>
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+			  if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+				  var openDropdown = dropdowns[i];
+				  if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				  }
+				}
+			  }
+			}
+			</script>
+		  </div>
+		<!-- Tab links -->
+		  
+		  <div class="align-c" style="display: inline-block">
+			<p2><b>Request Samples</b></p2>
+			<div class="tab" style="text-align: left">
+			  <button class="tablinks" onclick="openCode(event, 'php')" id="defaultOpen">Php</button>
+			  <button class="tablinks" onclick="openCode(event, 'python')">Python</button>
+			  <button class="tablinks" onclick="openCode(event, 'node')">Node</button>
+			  <button class="tablinks" onclick="openCode(event, 'js')">JavaScript</button>
+			  <button class="tablinks" onclick="openCode(event, 'curl')">Curl</button>
+			  <button class="tablinks" onclick="openCode(event, 'ruby')">Ruby</button>
+			  <button class="tablinks" onclick="openCode(event, 'use')">Use Cases</button>
+			</div>
 
+			<!-- Tab content -->
+			<div id="php" class="tabcontent php">
+			  <code>$url = 'https://race-prediction.herokuapp/api/race';
+$request_url = $url;
+$curl = curl_init($request_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER, [
+  'Content-Type: application/json'
+]);
+$response = curl_exec($curl);
+curl_close($curl);
+echo $response . PHP_EOL;</code>
+			</div>
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+			<div id="python" class="tabcontent python">
+			  <code>import http.client
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param"><a>None</a></div>
-    </div>  <!-- field-items -->
+	conn = http.client.HTTPSConnection("v3.football.api-sports.io")
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+	headers = {
+		'x-rapidapi-host': "v3.football.api-sports.io",
+		'x-rapidapi-key': "XxXxXxXxXxXxXxXxXxXxXxXx"
+		}
 
+	conn.request("GET", "/standings?league=39&season=2019", headers=headers)
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+	res = conn.getresponse()
+	data = res.read()
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">404</h4>
-    Invalid input
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  
+	print(data.decode("utf-8"))</code>
+			</div>
 
-  <div class="method"><a name="predictRace"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /race/{name}</code></pre></div>
-    <div class="method-summary">Predict Race by Name (<span class="nickname">predictRace</span>)</div>
-    <div class="method-notes">Name must not be empty</div>
+			<div id="node" class="tabcontent node">
+			  <code>vconst https = require('https');
 
+https.get('https://race-prediction.herokuapp/api/race', (resp) => {
+  let data = '';
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name value that need to be considered for prediction </div>
-    </div>  <!-- field-items -->
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data).explanation);
+  });
 
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});</code>
+			</div>
+			
+			<div id="js" class="tabcontent js">
+			  <code>// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest()
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      string(<a href="#Race">Race</a>)
-      
-    </div>
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+request.onload = function () {
+// Begin accessing JSON data here
+var data = JSON.parse(this.response)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ {
-  "predictedrace" : "MELAYU" 
- }]</code></pre>
+console.log(data)
+}
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+// Send request
+request.send()</code>
+			</div>
+			
+			<div id="curl" class="tabcontent curl">
+			  <code>curl --request GET \
+		--url 'https://race-prediction.herokuapp/api/race'</code>
+			</div>
+			
+			<div id="ruby" class="tabcontent ruby">
+			  <code>require 'net/http'
+require 'json'
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    successful operation
-        
-    <h4 class="field-label">400</h4>
-    Invalid name value
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
+url = 'https://race-prediction.herokuapp/api/race'
+uri = URI(url)
+response = Net::HTTP.get(uri)
+JSON.parse(response)</code>
+			</div>
+			
+			<div id="use" class="tabcontent use">
+			  <code>// Get possible outcomes of race prediction
+get("https://race-prediction.herokuapp/api/race");</code>
+			</div>
+		</div>
+			
+			
+		  <div class="align-c">
+			<p2><b>Response samples</b></p2>
+			<div class="tab" style="margin-top: 0px; text-align:left;">
+				<button class="tablinks" onclick="openCode2(event, '200')" style="color:green" id="defaultOpen2">200</button>
+				<button class="tablinks" onclick="openCode2(event, '204')" style="color:green">204</button>
+				<button class="tablinks" onclick="openCode2(event, '405')" style="color:red">405</button>
+				<button class="tablinks" onclick="openCode2(event, '500')" style="color:red">500</button>
+			</div>
+				
+			<div id="200" class="tabcontent2 200">
+					<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'races': 'response'}</code>
+			</div>
+			<div id="405" class="tabcontent2 405">
+				<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'message': 'method not allowed'}</code>
+			</div>
+			<div id="204" class="tabcontent2 204">
+				<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'message':'empty message'}</code>
+			</div>
+			<div id="500" class="tabcontent2 500">
+				<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'message': 'INTERNAL SERVER ERROR'}</code>
+			</div>		  
+		  </div>
+		</div>	
+	</div>	
+			
+	<div class="container" style="text-align: left">
+		<div class="split2 left">
+		    <hr>
+				 <div class="centered">
+					<h1>Predict Race</h1>
+					<p>Get the predicted race of entered name.
+					<div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">Examples available in Request samples "Use Cases".</div><br><br><br>
+				Update Frequency : This endpoint is constantly upgrading, updated periodically.<br>
+				Recommended Calls : 1 per day</p>
+				 </div><br>
+				<h3 style="color:#bbb;">HEADER PARAMTERS</h3>
+				  <hr><br>
+				  <div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+				<h3 style="color:#bbb;">QUERY PARAMTERS</h3>
+				<hr><br>
+				<div class="boxed2" style="height: 50px; width:150px;"><code>name</code><code style="color: red;"><br>required</code></div>
+				<div class="boxed2" style="height: 50px; width:450px;"><h3 style="color:black;font-weight:1px;padding-bottom:0">string</h3>Prediction name<hr></div><br><br><br><br>
+				<br><h3 style="color:#bbb;">HEADER PARAMTERS</h3>
+				<hr><br>
+				<div class="boxed3" style="margin:0; padding:5px; color:black; background-color:#eee;">This endpoint does not require any parameters.</div><br><br><br>
+				<h2 style="color: black;">Responses</h2>
+				<button class="collapsible2" style="background-color:rgb(152,251,152, 0.2); color: green;"><b>200</b></button>
+					<div class="content">
+						<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+						<hr>
+						<ul>
+						  <li><span><code>get</code></span></li>
+						  <li><span>
+								<button class="collapsible2" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>parameters</code></button>
+								<div class="content">
+									<div class="boxed3" style="background-color: #eee;">
+										<h3 style="color: black;"><code>Array () [field]</code></h3>
+									</div>
+								</div>
+						  </span></li>
+						  <li><span>
+								<button class="collapsible2" style="background-color:transparent; color:black; padding:0px; margin:0px;"><code>errors</code></button>
+								<div class="content">
+									<div class="boxed3" style="background-color: #eee;">
+										<h3 style="color: black;"><code>Array () [field]</code></h3>
+									</div>
+								</div>
+						  </span></li>
+						  <li><span><code>results</code></span></li>
+						  <li><span><button class="collapsible2" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>response </code></button></span></li>
+						</ul>
+					</div>
+				<button class="collapsible2" style="background-color:rgb(152,251,152, 0.2); color: green;"><b>204</b></button>
+				<div class="content">
+					<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+					<hr>
+					<ul>
+					  <li><span><code>get</code></span></li>
+					  <li><span>
+							<button class="collapsible2" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>parameters</code></button>
+							<div class="content">
+								<div class="boxed3" style="background-color: #eee;">
+									<h3 style="color: black;"><code>Array () [field]</code></h3>
+								</div>
+							</div>
+					  </span></li>
+					  <li><span>
+							<button class="collapsible2" style="background-color:transparent; color:black; padding:0px; margin:0px;"><code>errors</code></button>
+							<div class="content">
+								<div class="boxed3" style="background-color: #eee;">
+									<h3 style="color: black;"><code>Array () [field]</code></h3>
+								</div>
+							</div>
+					  </span></li>
+					  <li><span><code>results</code></span></li>
+					  <li><span><button class="collapsible2" style="background-color:transparent; color:black;padding:0px; margin:0px;"><code>response </code></button></span></li>
+					</ul>
+			</div>
+				<button class="collapsible2" style="background-color:rgba(255, 0, 0, 0.1); color: red;"><b>405</b></button>
+				<div class="content">
+					<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+					<hr>
+					<div class="boxed2" style="height: 20px; width:100px;"><code>message</code></div>
+					<div class="boxed2" style="height: 20px; width:250px;"><h3 style="color:black;padding:0; margin:12px;">string</h3><hr></div><br><br><br>
+				</div>
+				<button class="collapsible2" style="background-color:rgba(255, 0, 0, 0.1); color: red;"><b>500</b></button>
+				<div class="content">
+					<h3 style="color: #bbb">RESPONSE SCHEMA</h3>
+					<hr>
+					<div class="boxed2" style="height: 20px; width:100px;"><code>message</code></div>
+					<div class="boxed2" style="height: 20px; width:250px;"><h3 style="color:black;padding:0; margin:12px;">string</h3><hr></div><br><br><br>
+				</div>
+			  
+			  <script>
+				var coll = document.getElementsByClassName("collapsible2");
+				var i;
 
-  <h2><a name="__Models">Models</a></h2>
-  [ Jump to <a href="#__Methods">Methods</a> ]
+				for (i = 0; i < coll.length; i++) {
+				  coll[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.maxHeight){
+					  content.style.maxHeight = null;
+					} else {
+					  content.style.maxHeight = content.scrollHeight + "px";
+					} 
+				  });
+				}
+			</script>
+		  </div>
+		<div class="split right">
+		<hr>
+			<div class="align-t">
+				<div class="top">
+					<div class="dropdown">
+						<button class="dropbtn">
+						<div class="boxed"><b>GET</b></div>
+						<div class="boxed2"><code>/api/race/{name}</code></div>
+						</button>
+						<div class="dropdown-content">
+							<a href="#">Link 1</a>
+						 </div>
+					</div>
+					<p2><b>Request Samples</b></p2>
+				</div>
+			</div>	
+			<!-- Tab links -->		  
+			<div class="align-c" style="display: inline-block; text-align: left">
+				<div class="tab" style="text-align: left">
+				  <button class="tablinks" onclick="openCode(event, 'php')" id="defaultOpen">Php</button>
+				  <button class="tablinks" onclick="openCode(event, 'python')">Python</button>
+				  <button class="tablinks" onclick="openCode(event, 'node')">Node</button>
+				  <button class="tablinks" onclick="openCode(event, 'js')">JavaScript</button>
+				  <button class="tablinks" onclick="openCode(event, 'curl')">Curl</button>
+				  <button class="tablinks" onclick="openCode(event, 'ruby')">Ruby</button>
+				  <button class="tablinks" onclick="openCode(event, 'use')">Use Cases</button>
+				</div>
+				<!-- Tab content -->
+				<div id="php" class="tabcontent php">
+					<code>$url = 'https://race-prediction.herokuapp/api/race/{name}';
+$request_url = $url;
+$curl = curl_init($request_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER, [
+  'Content-Type: application/json'
+]);
+$response = curl_exec($curl);
+curl_close($curl);
+echo $response . PHP_EOL;</code>
+				</div>
+				<div id="python" class="tabcontent python">
+					<code>
+	import requests
+	response = requests.get("https://race-prediction.herokuapp/api/race")
+	print(response.json())
+	print(response.status_code)
+					</code>
+				</div>
+				<div id="node" class="tabcontent node">
+					<code>const https = require('https');
 
-  <h3>Table of Contents</h3>
-  <ol>
-    <li><a href="#ApiResponse"><code>ApiResponse</code> - </a></li>
-    <li><a href="#Pet"><code>Race</code> - </a></li>
-  </ol>
+https.get('https://race-prediction.herokuapp/api/race/{name}', (resp) => {
+  let data = '';
 
-  <div class="model">
-    <h3><a name="ApiResponse"><code>ApiResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a>Integer</a></span>  format: int32</div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a>String</a></span>  </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a>String</a></span>  </div>
-    </div> 
-  </div>
-  <div class="model">
-    <h3><a name="Race"><a>Race</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a>String</a></span>  </div>
-    </div> 
-  </div>
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data).explanation);
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});</code>
+				</div>
+				<div id="js" class="tabcontent js">
+					<code>// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest()
+
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://race-prediction.herokuapp/api/race/{name}', true)
+
+request.onload = function () {
+  var data = JSON.parse(this.response)
+
+console.log(data)
+
+}
+
+// Send request
+request.send()</code>
+				</div>
+				<div id="curl" class="tabcontent curl">
+					<code>curl --request GET \
+				--url 'https://race-prediction.herokuapp/api/race/{name}'
+					</code>
+				</div>
+				<div id="ruby" class="tabcontent ruby">
+					<code>require 'net/http'
+require 'json'
+
+url = 'https://race-prediction.herokuapp/api/race/{name}'
+uri = URI(url)
+response = Net::HTTP.get(uri)
+JSON.parse(response)</code>
+				</div>
+				<div id="use" class="tabcontent use">
+					<code>// Get predicted race for one name
+get("https://race-prediction.herokuapp/api/race/{name}");</code>
+				</div>
+			</div>	
+			
+			<div class="align-c">
+				<p2><b>Response samples</b></p2>
+				<div class="tab" style="margin-top: 0px; text-align:left;">
+					<button class="tablinks" onclick="openCode2(event, '200')" style="color:green" id="defaultOpen2">200</button>
+					<button class="tablinks" onclick="openCode2(event, '204')" style="color:green">204</button>
+					<button class="tablinks" onclick="openCode2(event, '405')" style="color:red">405</button>
+					<button class="tablinks" onclick="openCode2(event, '500')" style="color:red">500</button>
+				</div>
+				<div id="200" class="tabcontent2 200">
+					<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{
+	"get": "race",
+	"parameters": [],
+	"errors": {},
+	"results": 1,
+	"paging": {
+	"current": 1,
+	"total": 1
+	},
+	"response": [MELAYU, CINA, INDIA, LAIN-LAIN]
+					</code>
+				</div>
+				<div id="204" class="tabcontent2 204">
+					<div class="boxed3"><code>application/json</code></div><br></br>
+						<code>{'message': 'empty message'};</code>
+				</div>
+				<div id="405" class="tabcontent2 405">
+					<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'message': 'method not allowed'}</code>
+				</div>
+				<div id="500" class="tabcontent2 500">
+					<div class="boxed3"><code>application/json</code></div><br></br>
+					<code>{'message': 'INTERNAL SERVER ERROR'}</code>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script>
+			function openCode2(evt, cityName) {
+			  var i, tabcontent, tablinks;
+			  tabcontent = document.getElementsByClassName("tabcontent2");
+			  for (var i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].classList.remove('show');
+			  }
+			  tablinks = document.getElementsByClassName("tablinks2");
+			  for (var i = 0; i < tablinks.length; i++) {
+				tablinks[i].classList.remove('active');
+			  }
+			  document.getElementsByClassName(cityName)[0].classList.add('show');
+			  document.getElementsByClassName(cityName)[1].classList.add('show');
+			  var cuttentTabClass = evt.currentTarget.className.split(" ")[1];
+			  console.log(cuttentTabClass);
+			  document.getElementsByClassName(cuttentTabClass)[0].classList.add('active');
+			  document.getElementsByClassName(cuttentTabClass)[1].classList.add('active');
+			}
+			
+			function openCode(evt, cityName) {
+				  var i, tabcontent, tablinks;
+				  tabcontent = document.getElementsByClassName("tabcontent");
+				  for (var i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].classList.remove('show');
+				  }
+				  tablinks = document.getElementsByClassName("tablinks");
+				  for (var i = 0; i < tablinks.length; i++) {
+					tablinks[i].classList.remove('active');
+				  }
+				  document.getElementsByClassName(cityName)[0].classList.add('show');
+				  document.getElementsByClassName(cityName)[1].classList.add('show');
+				  var cuttentTabClass = evt.currentTarget.className.split(" ")[1];
+				  console.log(cuttentTabClass);
+				  document.getElementsByClassName(cuttentTabClass)[0].classList.add('active');
+				  document.getElementsByClassName(cuttentTabClass)[1].classList.add('active');
+				}
+				document.getElementById("defaultOpen").click();
+			document.getElementById("defaultOpen2").click();
+				
+			</script>
   
   </body>
 </html>
